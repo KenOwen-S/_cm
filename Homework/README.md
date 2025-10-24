@@ -13,3 +13,35 @@ This method uses small step sizes (h) to improve accuracy.
 The code illustrates how numerical differentiation and integration can be implemented from scratch without relying on libraries like NumPy or SciPy.
 
 It provides a simple practical check of the Fundamental Theorem of Calculus in a discrete approximation.
+
+## [homework 2]
+# Quadratic Equation Solver
+
+## Overview
+This Python program calculates the **roots of a quadratic equation** using the **quadratic formula**:
+
+\[
+ax^2 + bx + c = 0 \quad \Rightarrow \quad x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]
+
+It handles both **real and complex roots** using Python's `cmath` module.
+
+---
+
+## Features
+- Computes the **discriminant**: \(D = b^2 - 4ac\)
+- Finds **two roots** \(r_1\) and \(r_2\) using the quadratic formula
+- Works for:
+  - Positive discriminant → two real roots
+  - Zero discriminant → one real root (double root)
+  - Negative discriminant → two complex roots
+
+---
+
+## Function
+### `root2(a, b, c)`
+- **Inputs**: coefficients `a`, `b`, `c`
+- **Returns**: tuple `(r1, r2)` containing the roots
+- Uses `cmath.sqrt(D)` to handle complex numbers automatically.
+
+---
