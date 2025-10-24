@@ -102,3 +102,105 @@ It handles **real and complex roots**, including repeated roots, using the **dep
 root3(1, -3, 3, -1)
 # Output: [(1, True), (1, True), (1, True)]
 ```
+
+## [homework 4]
+# Polynomial Roots Finder
+
+This Python script calculates the roots of a polynomial using **NumPy**. It works for polynomials of any degree and handles small numerical inaccuracies in coefficients.
+
+---
+
+## Features
+
+- Automatically removes near-zero leading coefficients.
+- Handles constant, linear, and higher-degree polynomials.
+- Uses the **companion matrix** method for higher-degree polynomials.
+- Returns real or complex roots as appropriate.
+
+---
+
+## Requirements
+
+- Python 3.x
+- NumPy (`pip install numpy`)
+
+---
+
+## [homework 5]
+# Finite Field (Galois Field) Implementation in Python
+
+This Python class implements a **finite field** (Galois Field) of prime order `p` and optionally extension degree `n`.  
+It supports basic operations like addition, multiplication, and inverses, and can verify if the additive group properties hold.
+
+---
+
+## Features
+
+- Create a finite field GF(p^n)
+- Perform **addition** and **multiplication** modulo p
+- Compute **additive inverse** and **multiplicative inverse**
+- Verify if the additive group satisfies closure, associativity, identity, and inverse properties
+
+---
+
+## Requirements
+
+- Python 3.x
+- NumPy (`pip install numpy`)
+
+---
+
+## [homework 6]
+# 2D Geometry Library in Python
+
+This Python library provides classes for **points, lines, circles, and triangles**, along with common geometric operations such as translation, scaling, rotation, and intersections. It also includes utilities for verifying geometric properties like perpendicularity and Pythagoras’ theorem.
+
+---
+
+## Features
+
+- **Point**: translation, scaling, rotation, distance calculation  
+- **Line**: construct from points, find intersections, perpendicular lines  
+- **Circle**: intersection with lines and other circles  
+- **Triangle**: translation, scaling, rotation  
+- **Geometric utilities**: verify Pythagorean theorem for right triangles  
+
+---
+
+## Requirements
+
+- Python 3.x
+- `math` (built-in module)
+
+---
+
+## Usage
+
+```python
+from geometry import Point, Line, Circle, Triangle
+
+# Points
+p1 = Point(0, 0)
+p2 = Point(4, 0)
+external = Point(2, 3)
+
+# Lines
+line = Line.from_points(p1, p2)
+perp = line.perpendicular_through(external)
+foot = line.intersection(perp)
+
+print("Line:", line)
+print("Perpendicular line:", perp)
+print("Foot of perpendicular:", foot)
+
+# Circles
+circle1 = Circle(Point(0,0), 5)
+circle2 = Circle(Point(4,0), 3)
+print("Circle-circle intersections:", circle1.intersection_with_circle(circle2))
+
+# Triangles
+tri = Triangle(Point(0,0), Point(3,0), Point(3,4))
+print("Original triangle:", tri)
+print("Triangle rotated 90 deg:", tri.rotate(90))
+print("Triangle translated:", tri.translate(1,2))
+```
