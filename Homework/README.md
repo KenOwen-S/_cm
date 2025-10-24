@@ -45,3 +45,60 @@ It handles both **real and complex roots** using Python's `cmath` module.
 - Uses `cmath.sqrt(D)` to handle complex numbers automatically.
 
 ---
+
+## [homework 3]
+# Cubic Equation Solver
+
+## Overview
+This Python program calculates the **roots of a cubic equation** of the form:
+
+\[
+ax^3 + bx^2 + cx + d = 0
+\]
+
+It handles **real and complex roots**, including repeated roots, using the **depressed cubic transformation** and **Cardano's method**.
+
+---
+
+## Features
+- Handles **all cubic equations** where \(a \neq 0\)
+- Supports:
+  - Three real roots
+  - One real root and two complex roots
+  - Triple or repeated roots
+- Verifies each root numerically using `cmath.isclose`
+
+---
+
+## Function
+### `root3(a, b, c, d)`
+- **Inputs**: coefficients `a`, `b`, `c`, `d`
+- **Returns**: a list of tuples `(root, is_valid)`  
+  - `root` is the calculated root  
+  - `is_valid` indicates whether the root satisfies the original cubic equation
+
+### Method
+1. **Depressed cubic transformation**  
+   - Shifts the variable to remove the quadratic term:
+     \[
+     x = t - \frac{b}{3a}
+     \]
+2. **Compute parameters** `p` and `q` for Cardano’s formula
+3. **Discriminant**:  
+   \[
+   \Delta = \left(\frac{q}{2}\right)^2 + \left(\frac{p}{3}\right)^3
+   \]
+4. **Roots calculation**:
+   - If Δ ≈ 0 → repeated roots  
+   - Else → one real root and two complex roots
+5. **Shift back** the roots to original variable
+6. **Validate roots** against the original equation
+
+---
+
+## Example
+```python
+# Triple root at x = 1
+root3(1, -3, 3, -1)
+# Output: [(1, True), (1, True), (1, True)]
+```
